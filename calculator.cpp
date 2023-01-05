@@ -13,7 +13,7 @@ private:
     }
     void set_result(int operation_number)
     {
-        enum enOperations {Add=1,Subtract=2,Multiply=3,Divide=4};
+        enum enOperations {Add=1,Subtract=2,Multiply=3,Divide=4,clear=0};
         switch (operation_number)
         { 
             case Add:
@@ -36,6 +36,9 @@ private:
                     _result=_result/_LastNumber;
                     break;
                 }
+            case clear:
+                _result=0;
+                break;
         }    
     }
     float get_result()
@@ -73,6 +76,11 @@ public:
         {
             cout<<"the result after Dividing "<<get_LastNumber()<<" is "<<get_result()<<endl;
         }
+    }
+    void clear()
+    {
+        set_LastNumber(0);
+        set_result(0);
     }
 };
 int main()
